@@ -1,0 +1,17 @@
+{
+  "name": "wastewise",
+  "version": "1.0.0",
+  "description": "WasteWise — Smart Waste Management & Recycling Platform (MERN Stack)",
+  "scripts": {
+    "clean": "powershell -Command \"Stop-Process -Id (Get-NetTCPConnection -LocalPort 5000, 5173, 5174 -ErrorAction SilentlyContinue).OwningProcess -Force -ErrorAction SilentlyContinue\"",
+    "server": "node server/server.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently -k \"npm run server\" \"npm run client\"",
+    "start": "node server/server.js",
+    "build": "npm run build --prefix client",
+    "seed": "node server/utils/seedData.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
